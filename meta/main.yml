@@ -1,5 +1,14 @@
 ---
-dependencies: []
+dependencies:
+  - role: geerlingguy.pip
+    vars:
+      pip_executable: omit
+      pip_install_packages:
+        - name: "{{ certbot_package | default('certbot') }}"
+          version: "{{ certbot_version | default(omit) }}"
+          virtualenv: /opt/certbot
+          virtualenv_command: "python3 -m venv"
+    when: certbot_install_method == 'pip'
 
 galaxy_info:
   role_name: certbot

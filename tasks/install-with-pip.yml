@@ -1,0 +1,10 @@
+---
+- name: Create a symbolic link
+  file:
+    src: /opt/certbot/bin/certbot
+    dest: /usr/bin/certbot
+    state: link
+
+- name: Set Certbot script variable.
+  set_fact:
+    certbot_script: "{{ certbot_package }}"

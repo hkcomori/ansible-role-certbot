@@ -7,6 +7,9 @@
 - import_tasks: install-with-package.yml
   when: certbot_install_method == 'package'
 
+- import_tasks: install-with-pip.yml
+  when: certbot_install_method == 'pip'
+
 - import_tasks: install-with-snap.yml
   when: certbot_install_method == 'snap'
 

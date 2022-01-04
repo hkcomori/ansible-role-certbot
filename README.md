@@ -14,7 +14,7 @@ Generally, installing from source (see section `Source Installation from Git`) l
 
     certbot_install_method: package
 
-Controls how Certbot is installed. Available options are 'package', 'snap', and 'source'.
+Controls how Certbot is installed. Available options are 'package', 'pip', 'snap', and 'source'.
 
     certbot_auto_renew: true
     certbot_auto_renew_user: "{{ ansible_user | default(lookup('env', 'USER')) }}"
@@ -81,6 +81,11 @@ Beginning in December 2020, the Certbot maintainers decided to recommend install
 Setting `certbot_install_method: snap` configures this role to install Certbot via Snap.
 
 This install method is currently experimental and may or may not work across all Linux distributions.
+
+### Pip Installation
+
+You can install Certbot from Pip if desired with `certbot_install_method: pip` and `certbot_version` (option).
+If `certbot_version` is not configured, latest version will be installed.
 
 #### Webroot Certificate Generation
 
